@@ -43,23 +43,23 @@ while True:
             else:
                 handGesture_y = 'unknown'
 
-    elif results.multi_hand_landmarks:
-        for hand_landmarks in results.multi_hand_landmarks:
-            mp_drawing.draw_landmarks(
-                frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
-
-            thumb_tip = (hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].x * frame.shape[1],
-                         hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].y * frame.shape[0])
-            index_tip = (hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * frame.shape[1],
-                         hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * frame.shape[0])
-
-            distance = calculate_distance(thumb_tip, index_tip)
-
-
-            if distance < 50:  # If thumb and index finger are close (pinch gesture)
-                keyboard.send('brightnessup')  # Increase brightness
-            else:
-                keyboard.send('brightnessdown')  # Decrease brightness
+    # elif results.multi_hand_landmarks:
+    #     for hand_landmarks in results.multi_hand_landmarks:
+    #         mp_drawing.draw_landmarks(
+    #             frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+    #
+    #         thumb_tip = (hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].x * frame.shape[1],
+    #                      hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].y * frame.shape[0])
+    #         index_tip = (hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * frame.shape[1],
+    #                      hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * frame.shape[0])
+    #
+    #         distance = calculate_distance(thumb_tip, index_tip)
+    #
+    #
+    #         if distance < 50:
+    #             keyboard.send('brightnessup')
+    #         else:
+    #             keyboard.send('brightnessdown')
 
     cv2.imshow('Hand Gesture', frame)
 
