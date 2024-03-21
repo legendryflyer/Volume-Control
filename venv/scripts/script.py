@@ -7,7 +7,7 @@ import mediapipe as mp
 capture = cv2.VideoCapture(0)
 
 mp_hands = mp.solutions.hands
-hands = mp_hands.Hands(static_image_mode=False, max_num_hands=2,
+hands = mp_hands.Hands(static_image_mode=False, max_num_hands=1,
                        min_detection_confidence=0.5, min_tracking_confidence=0.5)
 
 mp_drawing = mp.solutions.drawing_utils
@@ -32,11 +32,11 @@ while True:
             indexFinger_y = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y
             thumb_y = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].y
 
-            if indexFinger_y < thumb_y:  # if index is up
+            if indexFinger_y < thumb_y:
                 handGesture_y = 'pointing up'
                 if handGesture_y == 'pointing up':
                     pyautogui.press('volumeup')
-            elif indexFinger_y > thumb_y:  # if index is down
+            elif indexFinger_y > thumb_y:
                 handGesture_y = 'pointing down'
                 if handGesture_y == 'pointing down':
                     pyautogui.press('volumedown')
