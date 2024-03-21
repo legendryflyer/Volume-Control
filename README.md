@@ -1,3 +1,3 @@
-
-![volume and brightness control ](https://github.com/legendryflyer/Volume-Control/assets/134642359/4a3a9f14-7b5f-4bbc-b5ea-0be55b3fbb2a)
-
+Control volume using Gestures
+![volume and brightness control ](https://github.com/legendryflyer/Volume-Control/assets/134642359/3c9d9d9c-a3cb-477b-b952-59290eed0620)
+Commented code is for pinch to cantrol brightness.
